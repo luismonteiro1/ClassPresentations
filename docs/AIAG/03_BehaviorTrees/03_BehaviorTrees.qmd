@@ -1,10 +1,12 @@
 ---
 title: "Behavior Trees"
+subtitle: "Artificial Intelligence Applied to Games"
 author: "Gustavo Reis, Luís Monteiro"
 format: 
   revealjs:
     theme: dark
     transition: slide
+    chalkboard: true
     background-transition: fade
     incremental: true
     slide-number: c/t
@@ -816,8 +818,14 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ------------------------------------------------------------------------
 
-## References
+## Sources
 
--   **Behavior Tree Overview**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview
--   **Behavior Tree User Guide**: https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html
--   **Behavior Tree Node Reference**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine
+Unreal Engine Documentation:
+
+[Behavior Tree Overview](https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview)
+
+
+[Behavior Tree User Guide](https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html)
+
+
+[Behavior Tree Node Reference](https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine)

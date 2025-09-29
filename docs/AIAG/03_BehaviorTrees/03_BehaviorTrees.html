@@ -34,6 +34,8 @@
   <link href="03_BehaviorTrees_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="03_BehaviorTrees_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -129,6 +131,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Behavior Trees</h1>
+  <p class="subtitle">Artificial Intelligence Applied to Games</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1066,13 +1069,12 @@ Gustavo Reis, Luís Monteiro
 </div></li>
 </ul>
 </section>
-<section id="references" class="slide level2">
-<h2>References</h2>
-<ul>
-<li class="fragment"><strong>Behavior Tree Overview</strong>: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine—overview</li>
-<li class="fragment"><strong>Behavior Tree User Guide</strong>: https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html</li>
-<li class="fragment"><strong>Behavior Tree Node Reference</strong>: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine</li>
-</ul>
+<section id="sources" class="slide level2">
+<h2>Sources</h2>
+<p>Unreal Engine Documentation:</p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview">Behavior Tree Overview</a></p>
+<p><a href="https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html">Behavior Tree User Guide</a></p>
+<p><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine">Behavior Tree Node Reference</a></p>
 
 </section></section>
     </div>
@@ -1089,6 +1091,7 @@ Gustavo Reis, Luís Monteiro
   <script src="03_BehaviorTrees_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="03_BehaviorTrees_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="03_BehaviorTrees_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1110,7 +1113,8 @@ Gustavo Reis, Luís Monteiro
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1281,7 +1285,7 @@ Gustavo Reis, Luís Monteiro
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
