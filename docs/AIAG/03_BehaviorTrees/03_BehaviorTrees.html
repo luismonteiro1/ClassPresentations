@@ -208,15 +208,15 @@ Gustavo Reis, Luís Monteiro
 <h2></h2>
 <h3 id="to-centralize-data">4. To Centralize Data</h3>
 <ul>
-<li class="fragment">Blackboards are a good way of centralizing data and removing the need for extra knowledge about where that data comes from</li>
+<li class="fragment">Blackboards are good at centralizing data, removing the need for extra knowledge about where that data comes from</li>
 <li class="fragment">Without blackboards, you often have to go through a number of steps to query information that’s stored in various different classes. For example:
 <ul>
 <li class="fragment">Get the AI Controller -&gt; Ask it for the Pawn or Character</li>
 <li class="fragment">From the Character -&gt; Get MovementComponent -&gt; Get the CrouchedEyeHeight</li>
-<li class="fragment">From the Character -&gt; Get MovementComponent -&gt; Cast it to your game’s derived class “MyGameCharacterMovementComponent” -&gt; Ask whether the character is sliding</li>
+<li class="fragment">From the Character -&gt; Get MovementComponent -&gt; Cast it to your game’s derived class “MyGameCharacterMovementComponent” -&gt; Ask if the character is sliding</li>
 </ul></li>
 <li class="fragment">Taking all of these steps whenever you want to read data is a pain</li>
-<li class="fragment">Instead, you can use a service or some other class to post relevant data to the blackboard, where it is stored, and all read access can then be greatly simplified</li>
+<li class="fragment">Instead, you can post relevant data to the blackboard, and all read access can then be greatly simplified</li>
 <li class="fragment">Centralizing data in this way is especially helpful for keeping code properly encapsulated</li>
 </ul>
 </section>
@@ -273,8 +273,8 @@ Gustavo Reis, Luís Monteiro
 <p>They’re a combination of two asset types: the Blackboard and the Behavior Tree.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1256,12 +1256,12 @@ Gustavo Reis, Luís Monteiro
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: '60%',
+        width: 1050,
 
         height: 700,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0,
+        margin: 0.1,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',

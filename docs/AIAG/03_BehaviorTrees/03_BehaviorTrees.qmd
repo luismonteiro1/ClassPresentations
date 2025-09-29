@@ -4,8 +4,6 @@ author: "Gustavo Reis, Luís Monteiro"
 format: 
   revealjs:
     theme: dark
-    width: "60%"
-    margin: 0
     transition: slide
     background-transition: fade
     incremental: true
@@ -89,13 +87,13 @@ Imagine the following scenario:
 
 ### 4. To Centralize Data
 
--   Blackboards are a good way of centralizing data and removing the need for extra knowledge about where that data comes from
+-   Blackboards are good at centralizing data, removing the need for extra knowledge about where that data comes from
 -   Without blackboards, you often have to go through a number of steps to query information that's stored in various different classes. For example:
     -   Get the AI Controller -\> Ask it for the Pawn or Character
     -   From the Character -\> Get MovementComponent -\> Get the CrouchedEyeHeight
-    -   From the Character -\> Get MovementComponent -\> Cast it to your game's derived class "MyGameCharacterMovementComponent" -\> Ask whether the character is sliding
+    -   From the Character -\> Get MovementComponent -\> Cast it to your game's derived class "MyGameCharacterMovementComponent" -\> Ask if the character is sliding
 -   Taking all of these steps whenever you want to read data is a pain
--   Instead, you can use a service or some other class to post relevant data to the blackboard, where it is stored, and all read access can then be greatly simplified
+-   Instead, you can post relevant data to the blackboard, and all read access can then be greatly simplified
 -   Centralizing data in this way is especially helpful for keeping code properly encapsulated
 
 ------------------------------------------------------------------------
@@ -115,8 +113,11 @@ Imagine the following scenario:
 ## Blackboard Keys {.smaller}
 
 -   When you create a blackboard it is empty
+
 -   Since it is possible to have multiple blackboards, one can use inheritance on blackboards with parent and child
+
     -   This way, one blackboard inherits the keys from the parent blackboard
+
 -   For each key you add to the blackboard, you have: **Entry Name**, **Entry Description**, **Key Type** and **Instance Synced** (for syncing this attribute across all different instances of the blackboard)
 
     ![](blackboardKey.png){fig-align="center" width="50%"}
@@ -148,7 +149,7 @@ Behavior Trees are a powerful tool for creating Artificial Intelligence in Unrea
 They're a combination of two asset types: the Blackboard and the Behavior Tree.
 
 | Asset Type | Description |
-|----------------------|--------------------------------------------------|
+|-----------------------|-------------------------------------------------|
 | Blackboard | The Blackboard is the AI's memory. It stores key values for the Behavior Tree to use. |
 | Behavior Tree | The Behavior Tree is the AI's processor. It makes decisions, and then acts on those decisions. |
 
@@ -159,6 +160,7 @@ They're a combination of two asset types: the Blackboard and the Behavior Tree.
 A behavior tree always starts with a special node: the Root node
 
 -   The root node is where the execution begins
+
 -   A behavior tree executes from the [**top to the bottom**]{.underline} and [**from left to right**]{.underline}
 
     ![](BT_example.png){fig-align="center" width="60%"}
@@ -182,7 +184,9 @@ A behavior tree always starts with a special node: the Root node
 ## Root Node {.smaller}
 
 -   The Root node is unique in the Behavior Tree and is the **starting point for the Behavior Tree**
+
 -   It can **only have one connection**, and you **cannot attach Decorators or Services to it**
+
 -   The Root Node has no properties of its own, but selecting it will show the Behavior Tree properties in the Details Panel, where you can set the Blackboard Asset of the Behavior Tree
 
     ![](root.png){fig-align="center" width="40%"}
@@ -427,7 +431,9 @@ The Cone Check decorator takes in 3 vector keys:
 For example, to test if the player is inside our cone: AI is activated when they see the player:
 
 -   **Cone origin** - AI location
+
 -   **Cone direction** - forward direction
+
 -   **Observed** - player location
 
     ![](decorators-06-1.png){fig-align="center" width="80%"}
@@ -437,7 +443,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 ## Cooldown Decorator
 
 -   The Cooldown decorator node will lock the execution of a node or branch until the cooldown time expires
+
 -   The idea is to prevent a branch from running for a certain amount of time after it as been successfully run
+
 -   For example: bullets, breathing time, special powers, etc.
 
     ![](decorators-07.png){fig-align="center" width="50%"}
@@ -446,11 +454,14 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Does Path Exist Decorator
 
-- This decorator checks if a path can be made from the two vectors: Blackboard Key A and Blackboard Key B
-- Blackboard decorators have an Path Query Type property:
+-   This decorator checks if a path can be made from the two vectors: Blackboard Key A and Blackboard Key B
+
+-   Blackboard decorators have an Path Query Type property:
 
 -   **NavMesh Raycast 2D** - really fast
+
 -   **Hierarchical Query** - Fast
+
 -   **Regular Path Finding** - Slow
 
     ![](decorators-08.png){fig-align="center" width="50%"}
@@ -595,25 +606,24 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Finish with Result Task
 
-- The Finish With Result Task node can be used to instantly finish with a given result
-- This node can be used to force a branch to exit or continue based on the defined result.
-- Possible Results:	
-    Succeeded: Finishes with success.
-    Failed: Finishes with failure.
-    Aborted: Finishes and aborts.
-    In Progress: Finishes as in-progress.
+-   The Finish With Result Task node can be used to instantly finish with a given result
+
+-   This node can be used to force a branch to exit or continue based on the defined result.
+
+-   Possible Results: Succeeded: Finishes with success. Failed: Finishes with failure. Aborted: Finishes and aborts. In Progress: Finishes as in-progress.
 
     ![](finish-with-result.png){fig-align="center" width="30%"}
-
 
 ------------------------------------------------------------------------
 
 ## Make Noise Task {.smaller}
 
 -   If the controlled pawn has the PawnNoiseEmitter Component, the Make Noise task will cause the Pawn to "produce a noise" (send a message) that other Pawns with the PawnSensing Component can hear (receive the message)
+
 -   It is just a way to alert the AIPerception component that a noise was made
+
 -   If you want to hear the noise, you need to have an AIPerception component
-    
+
     ![](make-noise-node.png){fig-align="center" width="30%"}
 
 ------------------------------------------------------------------------
@@ -621,35 +631,42 @@ For example, to test if the player is inside our cone: AI is activated when they
 ## Move Directly Toward Task
 
 -   Moves directly to the target ignoring obstacles
+
 -   It might get stuck on some obstacles
+
 -   Moves in straight line
 
     ![](move-directly-toward.png){fig-align="center" width="50%"}
-
 
 ------------------------------------------------------------------------
 
 ## Move To Task {.smaller}
 
 -   The Move To node will cause a Pawn with a Character Movement component to move using the NavMesh to the Vector Blackboard key
+
 -   **Move to location**: moves to the current location of an actor
+
 -   **Move to actor**: continues updating the target location as it moves
+
 -   **Acceptable radius**: how close does the pawn have to be to the target for the Move To task to succeed
 
     ![](move-to-node.png){fig-align="center" width="35%"}
-
 
 ------------------------------------------------------------------------
 
 ## Play Animation Task {.smaller}
 
 -   It takes an animation to play:
+
     -   Animation composite
     -   Animation montage
     -   Blend Spaces
     -   Anim Offsets
+
 -   If the Looping property is set, it will continue looping the animation until there is an abort: use this with Decorators
+
 -   **Nonblocking**: immediately fires success when the animation starts
+
 -   It is a simple basic node just intended to fire off an animation
 
     ![](play-animation-node.png){fig-align="center" width="35%"}
@@ -659,6 +676,7 @@ For example, to test if the player is inside our cone: AI is activated when they
 ## Play Sound Task
 
 -   The Play Sound node will play the sound given in the Sound to Play property
+
 -   If there is no sound assigned, it will fail
 
     ![](play-sound-node.png){fig-align="center" width="30%"}
@@ -668,7 +686,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 ## Rotate To Face BBEntry Task
 
 -   The Blackboard Key can an actor or a location
+
 -   Rotates the Pawn to face an actor or location
+
 -   **Precision**: in degrees
 
     ![](rotate-to-face-blackboard-entry.png){fig-align="center" width="55%"}
@@ -677,10 +697,13 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Run Behavior Task
 
-- The Run Behavior node enables you to run another Behavior Tree
-- Enables collapsing trees inside a Run Behavior node
-- It succeeds or fails, based on the BT inside of the node
-- Subtree asset cannot be changed at runtime
+-   The Run Behavior node enables you to run another Behavior Tree
+
+-   Enables collapsing trees inside a Run Behavior node
+
+-   It succeeds or fails, based on the BT inside of the node
+
+-   Subtree asset cannot be changed at runtime
 
     ![](run-behavior-node.png){fig-align="center" width="35%"}
 
@@ -688,8 +711,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Run Behavior Dynamic Task
 
-- Same as the Run Behavior task
-- However, allows to change subtree asset at runtime
+-   Same as the Run Behavior task
+
+-   However, allows to change subtree asset at runtime
 
     ![](run-behavior-tree-dynamic-node.png){fig-align="center" width="45%"}
 
@@ -697,8 +721,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Run EQS Query
 
-- Runs the specified Environment Query System (EQS) asset when the Task node is executed.
-- An EQS is a tool to gather information about the environment
+-   Runs the specified Environment Query System (EQS) asset when the Task node is executed.
+
+-   An EQS is a tool to gather information about the environment
 
     ![](run-eqs-query-node.png){fig-align="center" width="35%"}
 
@@ -706,8 +731,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Set Tag Cooldown
 
-- Sets a Cooldown Tag value and is used with Cooldown Tag Decorators to prevent Behavior Tree execution.
-- The task sets the cooldown, the decorators checks it
+-   Sets a Cooldown Tag value and is used with Cooldown Tag Decorators to prevent Behavior Tree execution.
+
+-   The task sets the cooldown, the decorators checks it
 
     ![](set-tag-cooldown-task.png){fig-align="center" width="35%"}
 
@@ -716,22 +742,28 @@ For example, to test if the player is inside our cone: AI is activated when they
 ## Wait/Wait Blackboard Time Task {.smaller}
 
 -   Wait simple has a wait time and delays its execution for that time, returning success when it is done
+
 -   The Behavior Tree will wait on this node until the wait time is up
+
 -   They abort if you have a decorator set to abort
+
 -   The main purpose of the wait tasks is to delay the execution further down the chain
 
-    ![](wait-task.png){fig-align="center" width="25%"}
-    ![](wait-blackboard-time-task.png){fig-align="center" width="25%"}
+    ![](wait-task.png){fig-align="center" width="25%"} ![](wait-blackboard-time-task.png){fig-align="center" width="25%"}
 
 ------------------------------------------------------------------------
 
 ## Custom Tasks {.smaller}
 
-- When creating a new task, you will have an empty event graph belonging to that task
-- You can (and should) create your own tasks with your own logic
-- Use tasks to define and create AI behaviors
-- There are 6 **overridable functions that must be used**
-- A task requires a **finish node** to return it succeeded or failed
+-   When creating a new task, you will have an empty event graph belonging to that task
+
+-   You can (and should) create your own tasks with your own logic
+
+-   Use tasks to define and create AI behaviors
+
+-   There are 6 **overridable functions that must be used**
+
+-   A task requires a **finish node** to return it succeeded or failed
 
     ![](custom-task-creation.png){fig-align="center" width="45%"}
 
@@ -743,18 +775,20 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Service Nodes
 
-- Services attach to Composite nodes, and will execute at their defined frequency as long as their branch is being executed
-- These are often used to make checks and to update the Blackboard
-- These take the place of traditional Parallel nodes in other Behavior Tree systems
-- Services are perfect in scenarios where you want to check or do something every X seconds
+-   Services attach to Composite nodes, and will execute at their defined frequency as long as their branch is being executed
+-   These are often used to make checks and to update the Blackboard
+-   These take the place of traditional Parallel nodes in other Behavior Tree systems
+-   Services are perfect in scenarios where you want to check or do something every X seconds
 
 ------------------------------------------------------------------------
 
 ## Default Focus Service {.smaller}
 
-- AI Agents can have a **focus target**, this target commonly used to represent what the agent is looking at
-- This decorator creates a shortcut to accessing an Actor in your Blueprints and Code by setting the focus of the AI Controller.
-- By setting the focus of the AI Controller to an Actor, you can directly access it from the AI Controller instead of accessing a Blackboard key.
+-   AI Agents can have a **focus target**, this target commonly used to represent what the agent is looking at
+
+-   This decorator creates a shortcut to accessing an Actor in your Blueprints and Code by setting the focus of the AI Controller.
+
+-   By setting the focus of the AI Controller to an Actor, you can directly access it from the AI Controller instead of accessing a Blackboard key.
 
     ![](default-focus.png){fig-align="center" width="40%"}
 
@@ -762,9 +796,11 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Run EQS Service
 
-- The Run EQS Service node can be used to regularly execute an Environmental Query System (EQS) 
-- Runs the EQS at a defined interval and can update BB keys
-- Carefull: EQS are expensive to execute
+-   The Run EQS Service node can be used to regularly execute an Environmental Query System (EQS)
+
+-   Runs the EQS at a defined interval and can update BB keys
+
+-   Carefull: EQS are expensive to execute
 
     ![](run-eqs-image.png){fig-align="center" width="55%"}
 
@@ -772,8 +808,9 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## Custom Services
 
-- You can also create your own services
-- Use these to check or perform your own logic on a set interval
+-   You can also create your own services
+
+-   Use these to check or perform your own logic on a set interval
 
     ![](new-custom-service-01.png){fig-align="center" width="55%"}
 
@@ -781,6 +818,6 @@ For example, to test if the player is inside our cone: AI is activated when they
 
 ## References
 
-- **Behavior Tree Overview**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview
-- **Behavior Tree User Guide**: https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html
-- **Behavior Tree Node Reference**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine
+-   **Behavior Tree Overview**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-in-unreal-engine---overview
+-   **Behavior Tree User Guide**: https://docs.unrealengine.com/latest/INT/Engine/AI/BehaviorTrees/UserGuide/index.html
+-   **Behavior Tree Node Reference**: https://dev.epicgames.com/documentation/en-us/unreal-engine/behavior-tree-node-reference-in-unreal-engine
