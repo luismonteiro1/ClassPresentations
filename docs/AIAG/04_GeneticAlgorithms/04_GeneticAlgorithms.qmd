@@ -22,10 +22,20 @@ format:
 -   They were created in the 1970s by John Holland
 -   They are based on the principles of natural selection and genetics
 
+::: notes
+-   stochastic = random, aleatório
+:::
+
 ## Natural Selection
 
 -   According to **Darwin**, nature favors the most well-adapted individuals, allowing them to reproduce more frequently than others
 -   However, a species subject solely to natural selection would tend to converge into a homogeneous population composed of the most well-adapted individuals from the initial population
+
+::: notes
+- Two girls at the bar, who do you talk to? Probably the one you find the most pretty
+- That's why "the best" ones have more chances of reproducing (being picked)
+- However, if this happened 100% of the time, eventually the population would be homogenous (all be the same or very similar)
+:::
 
 ## Genetics
 
@@ -40,11 +50,23 @@ format:
 -   The **genome** corresponds to the complete set of genetic material in an individual
 -   **Genotype** is the set of genes contained in the genome
 
+::: notes
+- Chromosomes consist of DNA chains, which are composed of genes. These genes define the characteristics of an individual.
+- The different values that genes can have are called alleles.
+- The genome is the name given to all the genetic material of an individual.
+- Genotype is the name given to the set of genes contained in the genome.
+:::
+
 ## Concepts and Terminology – Part I
 
 -   Chromosomes are organic entities that, develop during an individual's lifetime, and code for his/her/its **phenotype**
 -   The **phenotype** corresponds to the observable characteristics of an individual
     -   For example, eye color and nose size are part of the phenotype
+
+::: notes
+- Chromosomes over time define the phenotype of an individual.
+- Phenotype refers to the observable characteristics of an individual
+:::
 
 ## Concepts and Terminology – Part II
 
