@@ -312,28 +312,28 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <img data-src="ModelNeuron.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="the-bias-term" class="slide level2">
 <h2>The Bias Term</h2>
-<p>As we can see in the previous figure, there is a special input with value -1, with a weight called <strong><em>offset</em></strong> or <strong><em>bias</em></strong> represented as <strong><span class="math inline">\(\theta\)</span></strong>.</p>
-<p>The role of <strong><span class="math inline">\(\theta\)</span></strong>’s value will be illustrated in the next slides.</p>
+<p>As we can see in the previous figure, there is a special input with value -1, with a weight called <strong><em>offset</em></strong> or <strong><em>bias</em></strong> represented as <span class="math inline">\(\theta\)</span>.</p>
+<p>The role of <span class="math inline">\(\theta\)</span>’s value will be illustrated in the next slides.</p>
 </section>
 <section id="common-activation-functions" class="slide level2 smaller">
 <h2>Common Activation Functions</h2>
 
 <img data-src="ActivationFunctions.png" class="quarto-figure quarto-figure-center-right r-stretch quarto-figure-center" style="width:100.0%"><ol type="a">
-<li class="fragment"><strong>Step function</strong>: Binary output (0 or 1)</li>
+<li class="fragment"><strong>Unit Step function</strong>: Binary output (0 or 1)</li>
 <li class="fragment"><strong>Sign function</strong>: Binary output (-1 or +1)</li>
 <li class="fragment"><strong>Sigmoid function</strong>: Continuous output between 0 and 1</li>
 </ol>
 </section>
 <section id="neuron-example" class="slide level2 smaller">
 <h2>Neuron Example</h2>
-<p>Let us consider a neuron with two inputs and with the step activation function. So:</p>
+<p>Let us consider a neuron with two inputs and with the unit step activation function. So:</p>
 <p><span class="math display">\[a = \begin{cases}
 1, &amp; \text{if } x_1 w_1 + x_2 w_2 - \theta &gt; 0 \\
 0, &amp; \text{if } x_1 w_1 + x_2 w_2 - \theta &lt; 0
 \end{cases}\]</span></p>
-<p>This means that the neuron’s activation value (output) will be 1 if the weighted sum of the inputs is larger than <strong><span class="math inline">\(\theta\)</span></strong> and 0, otherwise.</p>
-<p>Therefore, <strong><span class="math inline">\(\theta\)</span></strong> represents the <strong>minimum value</strong> that the weighted sum must have so that the neuron’s activation value can be 1.</p>
-<p><strong><span class="math inline">\(\theta\)</span></strong> can be used with activation functions other than the step function.</p>
+<p>This means that the neuron’s activation value (output) will be 1 if the weighted sum of the inputs is larger than <span class="math inline">\(\theta\)</span> and 0, otherwise.</p>
+<p>Therefore, <span class="math inline">\(\theta\)</span> represents the <strong>minimum value</strong> that the weighted sum must have so that the neuron’s activation value can be 1.</p>
+<p><span class="math inline">\(\theta\)</span> can be used with activation functions other than the step function.</p>
 </section>
 <section id="limitations-of-a-single-neuron" class="slide level2">
 <h2>Limitations of a Single Neuron</h2>
@@ -348,7 +348,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 1, &amp; \text{if   } \mathbf{X}^T \mathbf{W} &gt; \theta \\
 0, &amp; \text{if   } \mathbf{X}^T \mathbf{W} \leq \theta
 \end{cases}\]</span></p>
-<p>where <strong><span class="math inline">\(\mathbf{X}\)</span></strong> represents the inputs vector and <strong><span class="math inline">\(\mathbf{W}\)</span></strong> the weights vector.</p>
+<p>where <span class="math inline">\(\mathbf{X}\)</span> represents the inputs vector and <span class="math inline">\(\mathbf{W}\)</span> the weights vector.</p>
 </section>
 <section id="hyperplanes" class="slide level2">
 <h2>Hyperplanes</h2>
@@ -377,9 +377,9 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <h2>Neural Networks Topologies</h2>
 <p>There are different types of network topologies, each one with its own characteristics. The main distinction is between:</p>
 <h3 id="feed-forward-networks">Feed-forward Networks</h3>
-<p>Where the connections are unidirectional and there are no feedback loops.</p>
+<p>Where the <strong>connections are unidirectional</strong> and there are <strong>no feedback loops</strong>.</p>
 <h3 id="recurrent-networks">Recurrent Networks</h3>
-<p>Where there are feedback loops (for example, the output networks can be connected to the input ones). These networks can form arbitrary topologies.</p>
+<p>Where there are <strong>feedback loops</strong> (for example, the output networks can be connected to the input ones). These networks can form arbitrary topologies.</p>
 </section></section>
 <section>
 <section id="feed-forward-networks-1" class="title-slide slide level1 center">
@@ -421,8 +421,8 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <h1>Hopfield Networks</h1>
 
 </section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
+<section id="hopfield-networks-1" class="slide level2">
+<h2>Hopfield Networks</h2>
 <p>Hopfield networks are an example of recurrent networks that have been extensively studied.</p>
 <p>Characteristics:</p>
 <ul>
@@ -432,21 +432,16 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </ul>
 <!-- IMAGE: Hopfield network diagram showing bidirectional connections -->
 </section>
-<section id="associative-memory" class="slide level2">
-<h2>Associative Memory</h2>
+<section id="hopfield-networks-2" class="slide level2">
+<h2>Hopfield Networks</h2>
 <p>This type of network works as an <strong>associative memory</strong>.</p>
 <ul>
 <li class="fragment">It is able to memorize <strong>0.138n</strong> examples, where <span class="math inline">\(n\)</span> is the number of neurons</li>
 <li class="fragment">For example, if the training set consists of a set of photos and if a small part of one of these photos is later presented to the network, the activation levels of the network should reproduce the photo to which the fragment presented belongs</li>
 </ul>
-</section></section>
-<section>
-<section id="network-structure-selection" class="title-slide slide level1 center">
-<h1>Network Structure Selection</h1>
-
 </section>
-<section id="the-challenge" class="slide level2">
-<h2>The Challenge</h2>
+<section id="network-structure-selection" class="slide level2">
+<h2>Network Structure Selection</h2>
 <p>One of the problems posed to who wants to build a neural network is the choice of its structure.</p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -457,14 +452,14 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><strong>Trade-offs</strong></p>
 </div>
 <div class="callout-content">
+<p>» If the network is <strong>too small</strong> may not be able to represent/model the desired function<br>
+» If it is <strong>too big</strong>, it can be able to represent exactly the training examples but be <strong>unable to generalize</strong> beyond those examples (we call <strong>overfitting</strong> to this problem)</p>
+</div>
+</div>
+</div>
 <ul>
-<li class="fragment">If the network is <strong>too small</strong> may not be able to represent/model the desired function</li>
-<li class="fragment">If it is <strong>too big</strong>, it can be able to represent exactly the training examples but be unable to generalize beyond those examples (we call <strong>overfitting</strong> to this problem)</li>
+<li class="fragment">The truth is that there is no method for choosing what is exactly the best structure for a neural network.</li>
 </ul>
-</div>
-</div>
-</div>
-<p>The truth is that there is no method for choosing what is exactly the best structure for a neural network.</p>
 </section></section>
 <section>
 <section id="neural-networks-training" class="title-slide slide level1 center">
@@ -483,94 +478,205 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <section id="types-of-learning" class="slide level2">
 <h2>Types of Learning</h2>
 <ul>
-<li class="fragment"><strong>Supervised learning</strong></li>
-<li class="fragment"><strong>Unsupervised learning</strong></li>
-<li class="fragment"><strong>Reinforcement learning</strong></li>
+<li class="fragment"><p><strong>Supervised learning</strong></p></li>
+<li class="fragment"><p><strong>Unsupervised learning</strong></p></li>
+<li class="fragment"><p><strong>Reinforcement learning</strong></p></li>
+<li class="fragment"><p>These learning paradigms involve the actualization of weights of the connections between neurons, according to some <strong>learning rule</strong>.</p></li>
 </ul>
-<p>These learning paradigms involve the actualization of weights of the connections between neurons, according to some <strong>learning rule</strong>.</p>
+<!-- TODO STARTS HERE -->
 </section></section>
 <section>
 <section id="learning-rules" class="title-slide slide level1 center">
 <h1>Learning Rules</h1>
-<p>Virtually all learning rules can be considered as variants of the <strong>Hebb’s rule</strong> suggested by Hebb in <em>Organization of Behaviour</em> (1949).</p>
+<p>Virtually all learning rules can be considered as variants of the <strong>Hebb’s rule</strong> suggested by Hebb in <em>Organization of Behaviour</em> (1949).<br>
+“Neurons that fire together, wire together” - <em>Donald Hebb</em></p>
 </section>
-<section id="hebbs-rule" class="slide level2">
+<section id="hebbs-rule" class="slide level2 smaller">
 <h2>Hebb’s Rule</h2>
 <p><strong>Idea</strong>: If two units <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are simultaneously active, then the connection between them should be strengthened.</p>
-<!-- IMAGE: Simple diagram showing units i and j connected by weight wij -->
 <p>If unit <span class="math inline">\(i\)</span> receives a value from unit <span class="math inline">\(j\)</span>, then Hebb’s rule prescribes the modification of <span class="math inline">\(w_{ij}\)</span> according to:</p>
-<p><span class="math display">\[\Delta w_{ij} = \gamma a_i a_j\]</span></p>
-<p>Where:</p>
-<ul>
-<li class="fragment"><span class="math inline">\(\gamma\)</span> is a positive proportionality constant that represents the <strong>learning rate</strong></li>
-<li class="fragment"><span class="math inline">\(a_i\)</span> and <span class="math inline">\(a_j\)</span> represent the output values of units <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, respectively</li>
-</ul>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><span class="math display">\[\Delta w_{ij} = \gamma a_i a_j\]</span> Where:<br>
+- <span class="math inline">\(\gamma\)</span> is a positive proportionality constant that represents the <strong>learning rate</strong><br>
+- <span class="math inline">\(a_i\)</span> and <span class="math inline">\(a_j\)</span> represent the output values of units <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, respectively</p>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="HebbsRule1.png" class="quarto-figure quarto-figure-right"></p>
+</figure>
+</div>
+</div></div>
 </section>
-<section id="delta-rule-widrow-hoff-1960" class="slide level2">
+<section id="hebbs-rule-examples" class="slide level2">
+<h2>Hebb’s Rule Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Both Neurons Active:</strong><br>
+γ = 0.1 (learning rate)<br>
+<br>
+aᵢ = 1 (neuron i is active)<br>
+aⱼ = 1 (neuron j is active)<br>
+<br>
+Then: Δwᵢⱼ = 0.1 × 1 × 1 = 0.1<br>
+So the weight wᵢⱼ increases by 0.1.<br>
+</p>
+</div><div class="column" style="width:50%;">
+<p><strong>One Neuron Inactive:</strong><br>
+γ = 0.1 (learning rate)<br>
+<br>
+aᵢ = 1 (neuron i is active)<br>
+aⱼ = 0 (neuron j is <em>NOT active</em>)<br>
+<br>
+Then: Δwᵢⱼ = 0.1 × 1 × 0 = 0.0<br>
+So the weight wᵢⱼ increases by 0.0.</p>
+</div></div>
+</section>
+<section id="delta-rule-widrow-hoff-1960" class="slide level2 smaller">
 <h2>Delta Rule (Widrow-Hoff 1960)</h2>
 <p>Delta rule is a variant of the Hebb’s rule: instead of the activation of unit <span class="math inline">\(i\)</span>, it introduces the difference between the current activation value of unit <span class="math inline">\(i\)</span>, <span class="math inline">\(a_i\)</span>, and the desired activation value, <span class="math inline">\(d_i\)</span>, to update the weights:</p>
-<!-- IMAGE: Simple diagram showing units i and j connected by weight wij -->
-<p><span class="math display">\[\Delta w_{ij} = \gamma (d_i - a_i) a_j\]</span></p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><span class="math display">\[\Delta w_{ij} = \gamma (d_i - a_i) a_j\]</span><br>
+<br>
+- The Delta Rule is a <em>supervised learning algorithm</em><br>
+- It adjusts weights proportionally to:<br>
+ - How wrong we are (dᵢ - aᵢ)<br>
+ - How much the input contributed (aⱼ)<br>
+If the input neuron (aⱼ) was active and contributed to an error, we adjust its weight more strongly.</p>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="HebbsRule1.png" class="quarto-figure quarto-figure-right"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="delta-rule-examples" class="slide level2 smaller">
+<h2>Delta Rule Examples</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Example: Want Neuron i to activate</strong><br>
+γ = 0.1 (learning rate)<br>
+dᵢ = 1 (we want neuron i to output 1)<br>
+aᵢ = 0 (but it actually outputs 0)<br>
+aⱼ = 1 (input neuron is active)<br>
+<strong>Calculation:</strong><br>
+Error = dᵢ - aᵢ = 1 - 0 = 1<br>
+<br>
+Δwᵢⱼ = γ × error × aⱼ<br>
+  = 0.1 × 1 × 1<br>
+  = 0.1<br>
+<strong>Result:</strong>&nbsp; The weight <em>increases</em> by 0.1, making neuron i <em>more likely to activate</em> next time when neuron j is active.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Example: Want Neuron i to NOT activate</strong><br>
+γ = 0.1<br>
+dᵢ = 0 (we want neuron i to output 0)<br>
+aᵢ = 1 (but it actually outputs 1 - wrong!)<br>
+aⱼ = 1 (input neuron is active)<br>
+<strong>Calculation:</strong><br>
+Error = dᵢ - aᵢ = 0 - 1 = -1<br>
+<br>
+Δwᵢⱼ = γ × error × aⱼ<br>
+  = 0.1 × -1 × 1<br>
+  = -0.1<br>
+<strong>Result:</strong>&nbsp; The weight <em>decreases</em> by 0.1, making neuron i <em>less likely to activate</em> next time.</p>
+</div></div>
+</section>
+<section id="hebbs-rule-vs-delta-rule" class="slide level2">
+<h2>Hebbs Rule vs Delta Rule</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Hebb’s Rule</th>
+<th>Delta Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Type</td>
+<td>Unsupervised</td>
+<td>Supervised</td>
+</tr>
+<tr class="even">
+<td>Uses targets?</td>
+<td>No</td>
+<td><strong>Yes</strong> (needs dᵢ)</td>
+</tr>
+<tr class="odd">
+<td>Formula</td>
+<td>γ·aᵢ·aⱼ</td>
+<td>γ·<strong>(dᵢ - aᵢ)</strong>·aⱼ</td>
+</tr>
+<tr class="even">
+<td>Learns</td>
+<td>Correlations</td>
+<td>Error correction</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">The Delta Rule is also called the Widrow-Hoff rule and is the basis for backpropagation in modern neural networks!</li>
+</ul>
 </section></section>
 <section>
 <section id="perceptron" class="title-slide slide level1 center">
 <h1>Perceptron</h1>
 
 </section>
-<section id="definition" class="slide level2">
+<section id="definition" class="slide level2 smaller">
 <h2>Definition</h2>
 <p>We will now study how the training is done in one layer networks using, as example, a <strong>perceptron network</strong>.</p>
 <p>A perceptron network is a feedforward network:</p>
 <ul>
-<li class="fragment">Each neuron (perceptron), as seen before, computes the inputs’ weighted sum and outputs a value of 1 if the sum is larger than <span class="math inline">\(\theta\)</span> and -1, otherwise (the signal activation function is, therefore, used)</li>
-<li class="fragment">The goal of a perceptron is the learning of some transformation <span class="math inline">\(T\)</span>, using examples, each composed by the entry <span class="math inline">\(\mathbf{x}\)</span> and by the corresponding desired output <span class="math inline">\(t = T(\mathbf{x})\)</span></li>
+<li class="fragment"><p>Each neuron (perceptron), as seen before, computes the inputs’ weighted sum and outputs a value of 1 if the sum is larger than <span class="math inline">\(\theta\)</span> and -1, otherwise (the signal activation function is, therefore, used)</p></li>
+<li class="fragment"><p>The goal of a perceptron is the learning of some transformation <span class="math inline">\(T\)</span>, using examples, each composed by the entry <span class="math inline">\(\mathbf{x}\)</span> and by the corresponding desired output <span class="math inline">\(t = T(\mathbf{x})\)</span></p>
+<p><span class="math display">\[T: \{-1, 1\}^n \to \{-1, 1\}^m\]</span></p></li>
 </ul>
-<p><span class="math display">\[T: \{-1, 1\}^n \to \{-1, 1\}^m\]</span></p>
 </section>
 <section id="scheme-of-a-perceptron-network" class="slide level2">
 <h2>Scheme of a Perceptron Network</h2>
-<!-- IMAGE: Perceptron network with inputs x1, x2, x3, x4 and outputs a1, a2, a3 -->
-<p>Note that the units are <strong>independent</strong> from each other. This means that we can limit our study to just one perceptron.</p>
+
+<img data-src="SchemeOfPerceptronNetwork.png" class="quarto-figure quarto-figure-center r-stretch" style="width:75.0%"><p>Note that the units are <strong>independent</strong> from each other.<br>
+This means that we can limit our study to just one perceptron.</p>
 </section></section>
 <section>
 <section id="perceptron-training-algorithm" class="title-slide slide level1 center">
 <h1>Perceptron Training Algorithm</h1>
 
 </section>
-<section id="algorithm" class="slide level2">
+<section id="algorithm" class="slide level2 smaller">
 <h2>Algorithm</h2>
 <ol type="1">
-<li class="fragment">Initialize the weights randomly</li>
-<li class="fragment"><strong>Do</strong></li>
-<li class="fragment">&nbsp;&nbsp;&nbsp;&nbsp;<strong>For each</strong> training example <span class="math inline">\(\mathbf{x}\)</span> from the train set <strong>do</strong></li>
-<li class="fragment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compute the output <span class="math inline">\(a\)</span> of the network for input <span class="math inline">\(\mathbf{x}\)</span></li>
-<li class="fragment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>If</strong> <span class="math inline">\(a \neq T(\mathbf{x})\)</span> (the perceptron answers incorrectly), modify the connections weights (including <span class="math inline">\(\theta\)</span>) as follows:</li>
-</ol>
+<li class="fragment"><p>Initialize the weights randomly</p></li>
+<li class="fragment"><p><strong>Do</strong></p></li>
+<li class="fragment"><p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>For each</strong> training example <span class="math inline">\(\mathbf{x}\)</span> from the train set <strong>do</strong></p></li>
+<li class="fragment"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compute the output <span class="math inline">\(a\)</span> of the network for input <span class="math inline">\(\mathbf{x}\)</span></p></li>
+<li class="fragment"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>If</strong> <span class="math inline">\(a \neq T(\mathbf{x})\)</span> (the perceptron answers incorrectly), modify the connections weights (including <span class="math inline">\(\theta\)</span>) as follows:</p>
 <p><span class="math display">\[\Delta w_i = \gamma (t - a) x_i\]</span></p>
-<p>where <span class="math inline">\(\gamma\)</span> represents the learning rate and should be <span class="math inline">\(0 &lt; \gamma \leq 1\)</span></p>
-<ol start="6" type="1">
-<li class="fragment"><strong>Until</strong> <span class="math inline">\(a = T(\mathbf{x})\)</span> for all training examples</li>
+<p>where <span class="math inline">\(\gamma\)</span> represents the learning rate and should be <span class="math inline">\(0 &lt; \gamma \leq 1\)</span></p></li>
+<li class="fragment"><p><strong>Until</strong> <span class="math inline">\(a = T(\mathbf{x})\)</span> for all training examples</p></li>
 </ol>
 </section>
 <section id="relationship-to-hebbs-rule" class="slide level2">
 <h2>Relationship to Hebb’s Rule</h2>
 <p>This procedure is very similar to the Hebb’s rule. The only difference is that, if the network answer is correct, there is no weights update.</p>
-<p><span class="math display">\[\text{Error} = \text{desired output} - \text{current output}\]</span></p>
-</section></section>
+
+<img data-src="PerceptronTrainingHebbsRule.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section></section>
 <section>
 <section id="perceptron-training-example" class="title-slide slide level1 center">
 <h1>Perceptron Training Example</h1>
 
 </section>
-<section id="problem-setup" class="slide level2">
+<section id="problem-setup" class="slide level2 smaller">
 <h2>Problem Setup</h2>
-<p>We want that the perceptron learns the logic AND function using a learning rate with value 1.</p>
-<p>Let us consider that the perceptron is initialized in the following way:</p>
-<!-- IMAGE: Perceptron with inputs x1, x2, bias -1, and weights w1=0, w2=0, θ=0 -->
-<p>Initial weights: <span class="math inline">\(w_1 = 0\)</span>, <span class="math inline">\(w_2 = 0\)</span>, <span class="math inline">\(\theta = 0\)</span></p>
-<p>The training examples consist of vectors <span class="math inline">\([x_1, x_2]\)</span> with values <span class="math inline">\([-1, -1]\)</span>, <span class="math inline">\([-1, 1]\)</span>, <span class="math inline">\([1, -1]\)</span> and <span class="math inline">\([1, 1]\)</span> (corresponding to the combinations that the AND function inputs can have) associated to the corresponding desired output: <span class="math inline">\(-1, -1, -1, 1\)</span>, respectively.</p>
+<p>We want the perceptron to learn the logic <strong>AND</strong> function using a <strong>learning rate</strong> with value 1.</p>
+<p>Consider that the perceptron is initialized in the following way:</p>
+
+<img data-src="PerceptronTrainExample.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><p>The training examples consist of vectors <span class="math inline">\([x_1, x_2]\)</span> with values <span class="math inline">\([-1, -1]\)</span>, <span class="math inline">\([-1, 1]\)</span>, <span class="math inline">\([1, -1]\)</span> and <span class="math inline">\([1, 1]\)</span> (corresponding to the combinations that the <strong>AND</strong> function inputs can have) associated to the corresponding desired output: <span class="math inline">\(-1, -1, -1, 1\)</span>, respectively.</p>
 </section>
-<section id="st-presentation-of-training-set" class="slide level2">
+<section id="st-presentation-of-training-set" class="slide level2 smaller">
 <h2>1st Presentation of Training Set</h2>
 <p><strong>Vector [-1, -1]:</strong></p>
 <p><span class="math display">\[a = \text{signal}(w_1 \cdot x_1 + w_2 \cdot x_2 + 0 \cdot (-1)) = \text{signal}(0 + 0 + 0) = \text{signal}(0) = -1\]</span></p>
@@ -579,7 +685,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><span class="math display">\[a = \text{signal}(0 \cdot (-1) + 0 \cdot 1 + 0 \cdot (-1)) = \text{signal}(0) = -1\]</span></p>
 <p>which corresponds to the output of <span class="math inline">\(-1\)</span> AND <span class="math inline">\(1\)</span>. Therefore, nothing is done.</p>
 </section>
-<section id="st-presentation-continued" class="slide level2">
+<section id="st-presentation-continued" class="slide level2 smaller">
 <h2>1st Presentation (continued)</h2>
 <p><strong>Vector [1, -1]:</strong></p>
 <p><span class="math display">\[a = \text{signal}(0 \cdot 1 + 0 \cdot (-1) + 0 \cdot (-1)) = \text{signal}(0) = -1\]</span></p>
@@ -593,7 +699,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <li class="fragment"><span class="math inline">\(\theta(\text{new}) = \theta(\text{current}) + \gamma \cdot (t - a) \cdot x = 0 + 1 \cdot 2 \cdot (-1) = -2\)</span></li>
 </ul>
 </section>
-<section id="nd-presentation-of-training-set" class="slide level2">
+<section id="nd-presentation-of-training-set" class="slide level2 smaller">
 <h2>2nd Presentation of Training Set</h2>
 <p><strong>Current weights:</strong> <span class="math inline">\([2, 2, -2]\)</span></p>
 <p><strong>Vector [-1, -1]:</strong></p>
@@ -608,7 +714,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <li class="fragment"><span class="math inline">\(\theta(\text{new}) = \theta(\text{current}) + \gamma \cdot (t - a) \cdot x = -2 + 1 \cdot (-2) \cdot (-1) = 0\)</span></li>
 </ul>
 </section>
-<section id="nd-presentation-continued" class="slide level2">
+<section id="nd-presentation-continued" class="slide level2 smaller">
 <h2>2nd Presentation (continued)</h2>
 <p><strong>Current weights:</strong> <span class="math inline">\([4, 0, 0]\)</span></p>
 <p><strong>Vector [1, -1]:</strong></p>
@@ -624,7 +730,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><span class="math display">\[a = \text{signal}(2 \cdot 1 + 2 \cdot 1 + 2 \cdot (-1)) = \text{signal}(2) = 1\]</span></p>
 <p>which corresponds to the output of <span class="math inline">\(1\)</span> AND <span class="math inline">\(1\)</span>. Therefore, nothing is done.</p>
 </section>
-<section id="rd-presentation-of-training-set" class="slide level2">
+<section id="rd-presentation-of-training-set" class="slide level2 smaller">
 <h2>3rd Presentation of Training Set</h2>
 <p><strong>Current weights:</strong> <span class="math inline">\([2, 2, 2]\)</span></p>
 <p><strong>Vector [-1, -1]:</strong></p>
@@ -634,7 +740,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><span class="math display">\[a = \text{signal}(2 \cdot (-1) + 2 \cdot 1 + 2 \cdot (-1)) = \text{signal}(-2) = -1\]</span></p>
 <p>which corresponds to the output of <span class="math inline">\(-1\)</span> AND <span class="math inline">\(1\)</span>. Therefore, nothing is done.</p>
 </section>
-<section id="rd-presentation-continued" class="slide level2">
+<section id="rd-presentation-continued" class="slide level2 smaller">
 <h2>3rd Presentation (continued)</h2>
 <p><strong>Vector [1, -1]:</strong></p>
 <p><span class="math display">\[a = \text{signal}(2 \cdot 1 + 2 \cdot (-1) + 2 \cdot (-1)) = \text{signal}(-2) = -1\]</span></p>
@@ -655,11 +761,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </div>
 <div class="callout-content">
 <p>The learning process is finished. The set of weights that allows the perceptron to answer correctly is:</p>
-<ul>
-<li class="fragment"><span class="math inline">\(w_1 = 2\)</span></li>
-<li class="fragment"><span class="math inline">\(w_2 = 2\)</span></li>
-<li class="fragment"><span class="math inline">\(\theta = 2\)</span></li>
-</ul>
+<p><span class="math inline">\(w_1 = 2\)</span> <span class="math inline">\(w_2 = 2\)</span> <span class="math inline">\(\theta = 2\)</span></p>
 </div>
 </div>
 </div>
@@ -669,38 +771,58 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <h1>The Delta Rule or LMS</h1>
 
 </section>
-<section id="overview-1" class="slide level2">
+<section id="overview" class="slide level2">
 <h2>Overview</h2>
-<p>The Delta rule, also known as <strong>LMS (Least Mean Square)</strong> is a generalization of the perceptron’s training algorithm, extended to be able to deal with continuous inputs and outputs.</p>
-<p>According to this rule, the weights update is done in the following way:</p>
+<p>The <strong>Delta rule</strong>, also known as <strong>LMS (Least Mean Square)</strong> is a generalization of the perceptron’s training algorithm, extended to be able to deal with continuous inputs and outputs.</p>
+<ul>
+<li class="fragment"><p>According to this rule, the weights update is done in the following way:</p>
 <p><span class="math display">\[\Delta w_{jp} = \gamma \delta_p x_{jp}\]</span></p>
-<p>where <span class="math inline">\(\delta_p = d_p - a_p\)</span> is the difference between the desired and the current output for the input pattern <span class="math inline">\(p\)</span>.</p>
+<p>where <span class="math inline">\(\delta_p = d_p - a_p\)</span> is the difference between the desired and the current output for the input pattern <span class="math inline">\(p\)</span>.</p></li>
+</ul>
 </section>
-<section id="lms-with-linear-units" class="slide level2">
+<section id="lms-with-linear-units" class="slide level2 smaller">
 <h2>LMS with Linear Units</h2>
 <p>The LMS procedure has been applied more often with purely linear output units.</p>
-<p>For a network of this type (linear output) with just one output unit, the output is given by:</p>
-<p><span class="math display">\[a = \sum_j w_j x_j - \theta\]</span></p>
-<p>The error function, as the name indicates, is the quadratic sum of the weights, that is, the total error, <span class="math inline">\(E\)</span>, is defined by:</p>
-<p><span class="math display">\[E = \sum_p E_p = \sum_p \frac{1}{2}(d_p - a_p)^2\]</span></p>
+<ul>
+<li class="fragment"><p>For a network of this type (linear output) with just one output unit, the output is given by:</p>
+<p><span class="math display">\[a = \sum_j w_j x_j - \theta\]</span></p></li>
+<li class="fragment"><p>The <strong>error</strong> function, as the name indicates, is the quadratic sum of the weights, that is, the total error, <span class="math inline">\(E\)</span>, is defined by:</p>
+<p><span class="math display">\[E = \sum_p E_p = \sum_p \frac{1}{2}(d_p - a_p)^2\]</span></p></li>
+</ul>
 </section>
 <section id="gradient-descent-method" class="slide level2">
 <h2>Gradient Descent Method</h2>
 <p>The LMS procedure finds the weights values which minimize the function error, through a method called <strong>gradient descent</strong>.</p>
 <p>The idea consists in doing changes to the weights proportional to the negative derivative of the error:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="HebbsRule1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
 <p><span class="math display">\[\Delta w_j = -\gamma \frac{\partial E}{\partial w_j}\]</span></p>
 <p><span class="math display">\[\frac{\partial E}{\partial w_j} = \sum_p \frac{\partial E_p}{\partial w_j} = \sum_p \frac{\partial E_p}{\partial a_p} \frac{\partial a_p}{\partial w_j}\]</span></p>
-<!-- IMAGE: Error surface diagram showing gradient descent -->
+</div></div>
 </section>
 <section id="derivation" class="slide level2">
 <h2>Derivation</h2>
 <p>Given that the units are linear, we have:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
 <p><span class="math display">\[\frac{\partial a_p}{\partial w_j} = x_j\]</span></p>
-<p>and</p>
+</div><div class="column" style="width:10%;">
+<p>&nbsp;<br>
+and</p>
+</div><div class="column" style="width:60%;">
 <p><span class="math display">\[\frac{\partial E_p}{\partial a_p} = -(d_p - a_p)\]</span></p>
-<p>which leads to:</p>
+</div></div>
+<ul>
+<li class="fragment"><p>Which leads to:</p>
 <p><span class="math display">\[\Delta w_{jp} = \gamma \delta_p x_j\]</span></p>
-<p>where <span class="math inline">\(\delta_p = d_p - a_p\)</span> is the difference between the desired output and the current output for the training example <span class="math inline">\(p\)</span>.</p>
+<p>where <span class="math inline">\(\delta_p = d_p - a_p\)</span> is the difference between the desired output and the current output for the training example <span class="math inline">\(p\)</span>.</p></li>
+</ul>
 </section></section>
 <section>
 <section id="back-propagation" class="title-slide slide level1 center">
@@ -713,41 +835,36 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </section>
 <section id="the-solution" class="slide level2">
 <h2>The Solution</h2>
-<p>In 1986 Rumelhart, Hinton and Williams presented a solution for this problem.</p>
+<p>In 1986 <strong>Rumelhart, Hinton and Williams</strong> presented a solution for this problem.</p>
 <p>The central idea of this solution is that the <strong>errors for the hidden layers units are computed backpropagating the errors of the output layer units</strong>.</p>
-<p>The algorithm can also be considered a generalization of the Delta rule for non-linear activation functions and can be applied to networks with any number of layers.</p>
-</section></section>
-<section>
-<section id="back-propagation-algorithm" class="title-slide slide level1 center">
-<h1>Back-propagation Algorithm</h1>
-
+<p>The algorithm can also be considered a generalization of the <strong>Delta rule</strong> for <strong>non-linear</strong> activation functions and can be applied to networks with any number of layers.</p>
 </section>
-<section id="the-algorithm" class="slide level2">
-<h2>The Algorithm</h2>
+<section id="back-propagation-algorithm" class="slide level2 smaller">
+<h2>Back-propagation Algorithm</h2>
 <ol type="1">
 <li class="fragment">Initialize all the weights with low random values</li>
 <li class="fragment"><strong>While</strong> stop condition not satisfied <strong>do</strong>
 <ul>
 <li class="fragment"><strong>For each</strong> training example <strong>do</strong>
 <ul>
-<li class="fragment">Compute the output <span class="math inline">\(o\)</span> of the network for the training example<br>
-<em>// propagates the inputs through the network</em></li>
-<li class="fragment"><strong>For each</strong> output unit <span class="math inline">\(k\)</span> <strong>do</strong><br>
-<em>// computes and propagates errors through the network</em> <span class="math display">\[\delta_k = f'(in_k)(d_k - a_k)\]</span></li>
+<li class="fragment">Compute the output <span class="math inline">\(o\)</span> of the network for the training example</li>
+<li class="fragment"><strong>For each</strong> output unit <span class="math inline">\(k\)</span> <strong>do</strong> <em>// computes and propagates errors through the network</em> <span class="math display">\[\delta_k = f'(in_k)(d_k - a_k)\]</span></li>
 <li class="fragment"><strong>For each</strong> hidden unit <span class="math inline">\(h\)</span> <strong>do</strong> <span class="math display">\[\delta_h = f'(in_h) \sum_k w_{h,k} \delta_k\]</span></li>
 <li class="fragment">Update each weight of the network: <span class="math display">\[w_{i,j} = w_{i,j} + \gamma \delta_j a_i\]</span></li>
 </ul></li>
 </ul></li>
 </ol>
 </section>
-<section id="sigmoid-activation-function" class="slide level2">
+<section id="sigmoid-activation-function" class="slide level2 smaller">
 <h2>Sigmoid Activation Function</h2>
 <p>Let us consider the sigmoid activation function:</p>
 <p><span class="math display">\[f(x) = \frac{1}{1 + e^{-x}}\]</span></p>
 <p>whose derivative is:</p>
+<p><span class="math display">\[f'(x) = \frac{1}{1 + e^{-x}} \cdot (1- \frac{1}{1 + e^{-x}})\]</span></p>
+<p>that is:</p>
 <p><span class="math display">\[f'(x) = f(x) \cdot (1 - f(x))\]</span></p>
 </section>
-<section id="error-computation-for-output-units" class="slide level2">
+<section id="error-computation-for-output-units" class="slide level2 smaller">
 <h2>Error Computation for Output Units</h2>
 <p>So, the error for an output unit <span class="math inline">\(k\)</span> is given by:</p>
 <p><span class="math display">\[\delta_k = f'(in_k) \cdot (d_k - a_k)\]</span></p>
@@ -755,67 +872,57 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><span class="math display">\[\delta_k = a_k \cdot (1 - a_k) \cdot (d_k - a_k)\]</span></p>
 <p>That is, for the output units, the error is:</p>
 <p><span class="math display">\[\boxed{\delta_k = a_k \cdot (1 - a_k) \cdot (d_k - a_k)}\]</span></p>
-<p>Components:</p>
-<ul>
-<li class="fragment">Desired output: <span class="math inline">\(d_k\)</span></li>
-<li class="fragment">Current output: <span class="math inline">\(a_k\)</span></li>
-</ul>
+<p>Components:<br>
+ - Desired output: <span class="math inline">\(d_k\)</span><br>
+ - Current output: <span class="math inline">\(a_k\)</span></p>
 </section>
 <section id="error-computation-for-hidden-units" class="slide level2">
 <h2>Error Computation for Hidden Units</h2>
 <p>For the hidden layers units <span class="math inline">\(h\)</span>, the error is given by:</p>
 <p><span class="math display">\[\boxed{\delta_h = a_h \cdot (1 - a_h) \cdot \sum_k w_{h,k} \delta_k}\]</span></p>
-<p>Components:</p>
-<ul>
-<li class="fragment">Current output of unit <span class="math inline">\(h\)</span>: <span class="math inline">\(a_h\)</span></li>
-<li class="fragment">Weight of the connection to destination unit <span class="math inline">\(k\)</span>: <span class="math inline">\(w_{h,k}\)</span></li>
-<li class="fragment">Error for the destination unit <span class="math inline">\(k\)</span>: <span class="math inline">\(\delta_k\)</span></li>
-<li class="fragment">Forward connections: <span class="math inline">\(\sum_k\)</span></li>
-</ul>
+<p>Components:<br>
+ - Current output of unit <span class="math inline">\(h\)</span>: <span class="math inline">\(a_h\)</span><br>
+ - Weight of the connection to destination unit <span class="math inline">\(k\)</span>: <span class="math inline">\(w_{h,k}\)</span><br>
+ - Error for the destination unit <span class="math inline">\(k\)</span>: <span class="math inline">\(\delta_k\)</span><br>
+ - Forward connections: <span class="math inline">\(\sum_k\)</span></p>
 </section>
 <section id="weight-update" class="slide level2">
 <h2>Weight Update</h2>
 <p>And the new weights:</p>
-<p><span class="math display">\[w_{i,j} = w_{i,j} + \gamma \delta_j a_i\]</span></p>
-<p>Components:</p>
-<ul>
-<li class="fragment">Current value: <span class="math inline">\(w_{i,j}\)</span></li>
-<li class="fragment">Error for the destination unit: <span class="math inline">\(\delta_j\)</span></li>
-<li class="fragment">Output value for the origin unit: <span class="math inline">\(a_i\)</span></li>
-</ul>
+<p><span class="math display">\[\boxed{w_{i,j} = w_{i,j} + \gamma \delta_j a_i}\]</span></p>
+<p>Components:<br>
+ - Current value: <span class="math inline">\(w_{i,j}\)</span><br>
+ - Error for the destination unit: <span class="math inline">\(\delta_j\)</span><br>
+ - Output value for the origin unit: <span class="math inline">\(a_i\)</span></p>
 </section></section>
 <section>
 <section id="back-propagation-exercise" class="title-slide slide level1 center">
 <h1>Back-propagation Exercise</h1>
 
 </section>
-<section id="problem" class="slide level2">
-<h2>Problem</h2>
-<p>Given the below network and the following training example <span class="math inline">\(\langle [0, 1], [1, 1] \rangle\)</span> (<span class="math inline">\(\langle\)</span>input, desired output<span class="math inline">\(\rangle\)</span>), update the weights using Back-propagation.</p>
-<!-- IMAGE: Neural network with h1, h2 hidden units and o1, o2 output units with specified weights -->
-<p>Network structure:</p>
-<ul>
-<li class="fragment">Inputs: <span class="math inline">\([0, 1]\)</span></li>
-<li class="fragment">Hidden units: <span class="math inline">\(h_1\)</span>, <span class="math inline">\(h_2\)</span></li>
-<li class="fragment">Output units: <span class="math inline">\(o_1\)</span>, <span class="math inline">\(o_2\)</span></li>
-<li class="fragment">Weights shown in diagram</li>
-<li class="fragment">Activation function: <strong>sigmoid</strong></li>
-<li class="fragment">Learning rate: <span class="math inline">\(\gamma = 0.25\)</span></li>
-</ul>
+<section id="exercise" class="slide level2 smaller">
+<h2>Exercise</h2>
+Given the below network and the following training example<br>
+<span class="math display">\[\langle [0, 1], [1, 1] \rangle(\langle Input, Desired Output\rangle)\]</span>
+<center>
+Update the weights using Back-propagation.
+</center>
+
+<img data-src="Exercise.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"><p>Network structure: - <strong>Inputs:</strong> <span class="math inline">\([0, 1]\)</span> - <strong>Hidden units:</strong> <span class="math inline">\(h_1\)</span>, <span class="math inline">\(h_2\)</span> - <strong>Output units:</strong> <span class="math inline">\(o_1\)</span>, <span class="math inline">\(o_2\)</span> - <strong>Weights:</strong> shown in diagram - <strong>Activation function:</strong> <strong>sigmoid</strong> - <strong>Learning rate:</strong> <span class="math inline">\(\gamma = 0.25\)</span></p>
 </section>
-<section id="solution-forward-pass" class="slide level2">
+<section id="solution-forward-pass" class="slide level2 smaller">
 <h2>Solution: Forward Pass</h2>
 <p>First, we need to compute the network output for input <span class="math inline">\([0, 1]\)</span>:</p>
-<p><strong>Output of <span class="math inline">\(h_1\)</span>:</strong></p>
+<p><strong>Output of</strong> <span class="math inline">\(h_1\)</span>:</p>
 <p><span class="math display">\[f(0 \cdot (-0.1) + 1 \cdot 0.3) = f(0.3) = \frac{1}{1+e^{-0.3}} = 0.5744\]</span></p>
-<p><strong>Output of <span class="math inline">\(h_2\)</span>:</strong></p>
+<p><strong>Output of</strong> <span class="math inline">\(h_2\)</span>:</p>
 <p><span class="math display">\[f(0 \cdot 0.2 + 1 \cdot (-0.2)) = f(-0.2) = \frac{1}{1+e^{0.2}} = 0.4502\]</span></p>
-<p><strong>Output of <span class="math inline">\(o_1\)</span>:</strong></p>
+<p><strong>Output of</strong> <span class="math inline">\(o_1\)</span>:</p>
 <p><span class="math display">\[f(0.5744 \cdot 0.2 + 0.4502 \cdot (-0.5)) = f(-0.1102) = \frac{1}{1+e^{0.1102}} = 0.4725\]</span></p>
-<p><strong>Output of <span class="math inline">\(o_2\)</span>:</strong></p>
+<p><strong>Output of</strong> <span class="math inline">\(o_2\)</span>:</p>
 <p><span class="math display">\[f(0.5744 \cdot 0.2 + 0.4502 \cdot (-0.1)) = f(-0.0698) = \frac{1}{1+e^{-0.0698}} = 0.5175\]</span></p>
 </section>
-<section id="solution-delta-errors" class="slide level2">
+<section id="solution-delta-errors" class="slide level2 smaller">
 <h2>Solution: Delta Errors</h2>
 <p><strong>Delta errors:</strong></p>
 <p><span class="math display">\[\delta_{o_1} = (1 - 0.4725) \cdot 0.4725 \cdot (1 - 0.4725) = 0.1315\]</span></p>
@@ -823,7 +930,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><span class="math display">\[\delta_{h_1} = 0.5744 \cdot (1 - 0.5744) \cdot (0.2 \cdot 0.1315 + 0.2 \cdot 0.1205) = 0.0123\]</span></p>
 <p><span class="math display">\[\delta_{h_2} = 0.4502 \cdot (1 - 0.4502) \cdot (-0.5 \cdot 0.1315 + (-0.1) \cdot 0.1205) = -0.0193\]</span></p>
 </section>
-<section id="solution-weight-updates" class="slide level2">
+<section id="solution-weight-updates" class="slide level2 smaller">
 <h2>Solution: Weight Updates</h2>
 <p>Using <span class="math inline">\(\gamma = 0.25\)</span>:</p>
 <p><span class="math display">\[w_{h_1x_1} = -0.1 + 0.25 \cdot 0.0123 \cdot 0 = -0.1\]</span></p>
@@ -860,15 +967,14 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </div>
 </div>
 </section>
-<section id="unit-saturation" class="slide level2">
+<section id="unit-saturation" class="slide level2 smaller">
 <h2>Unit Saturation</h2>
 <p>As the training process advances, the weights can reach very high values.</p>
 <p>This can lead to:</p>
 <ul>
-<li class="fragment">Very high weighted inputs sums</li>
-<li class="fragment">Due to the usage of the sigmoid activation function, the units will have activation values <span class="math inline">\(a\)</span> very close to zero</li>
-<li class="fragment">In these circumstances, the variation of weights, which is proportional to <span class="math inline">\(a \cdot (1 - a)\)</span>, will be close to zero and the network doesn’t learn</li>
-</ul>
+<li class="fragment"><p>Very high weighted inputs sums</p></li>
+<li class="fragment"><p>Due to the usage of the sigmoid activation function, the units will have activation values <span class="math inline">\(a\)</span> very close to zero</p></li>
+<li class="fragment"><p>In these circumstances, the variation of weights, which is proportional to <span class="math inline">\(a \cdot (1 - a)\)</span>, will be close to zero and the network won’t learn</p>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -881,16 +987,17 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p>A good way of avoiding this problem is to <strong>normalize the entries in the [0, 1] interval</strong>.</p>
 </div>
 </div>
-</div>
+</div></li>
+</ul>
 </section>
 <section id="local-minima" class="slide level2">
 <h2>Local Minima</h2>
 <p>The error surface of a complex network has plenty of hills and valleys, and the network can be stuck in a <strong>local minimum</strong>, even if there is a nearby global minimum.</p>
-<!-- IMAGE: Error surface showing local and global minima -->
-</section></section>
+
+<img data-src="LocalMinima.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section></section>
 <section>
-<section id="improving-bps-convergence" class="title-slide slide level1 center">
-<h1>Improving BP’s Convergence</h1>
+<section id="improving-backpropagation-convergence" class="title-slide slide level1 center">
+<h1>Improving BackPropagation Convergence</h1>
 
 </section>
 <section id="techniques" class="slide level2">
@@ -919,26 +1026,25 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <h2>Momentum</h2>
 <p><strong>Goal</strong>: To accelerate the learning process amortizing oscillations and facilitating the convergence to a global minimum of the error function.</p>
 <p><strong>How</strong>: The variation of weights depends also on previous variations:</p>
-<p><span class="math inline">\(w_{i,j}(t) = \gamma \delta_j a_i + \alpha \Delta w_{i,j}(t-1)\)</span></p>
-<p>Where:</p>
+<p><span class="math display">\[w_{i,j}(t) = \gamma \delta_j a_i + \alpha \Delta w_{i,j}(t-1)\]</span></p>
 <ul>
-<li class="fragment"><span class="math inline">\(\gamma\)</span> is the learning rate</li>
-<li class="fragment"><span class="math inline">\(\alpha\)</span> is the momentum coefficient</li>
-<li class="fragment"><span class="math inline">\(\Delta w_{i,j}(t-1)\)</span> is the previous weight change</li>
+<li class="fragment">Where: <span class="math inline">\(\gamma\)</span> is the learning rate <span class="math inline">\(\alpha\)</span> is the momentum coefficient <span class="math inline">\(\Delta w_{i,j}(t-1)\)</span> is the previous weight change</li>
 </ul>
 </section>
-<section id="momentum-effects" class="slide level2">
+<section id="momentum-effects" class="slide level2 smaller">
 <h2>Momentum Effects</h2>
-<!-- IMAGE: Two error surface diagrams comparing without momentum vs with momentum -->
-<p><strong>Without momentum:</strong></p>
-<ul>
-<li class="fragment">It isn’t able to escape from the local minimum due to oscillations</li>
-</ul>
-<p><strong>With momentum:</strong></p>
-<ul>
-<li class="fragment">It can escape from the local minimum: the weights tend to be modified in the direction of previous modifications</li>
-<li class="fragment">Successive updates in the same direction tend to increase the magnitude of the modifications, leading to a faster convergence</li>
-</ul>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><strong>Without momentum</strong> <img data-src="Momentum1.png" class="quarto-figure quarto-figure-center"> <span style="color: red;">It cant escape from the local minimum</span>, due to oscilations</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:35%;">
+<p><strong>With momentum</strong> <img data-src="Momentum2.png" class="quarto-figure quarto-figure-center"> <span style="color: DodgerBlue;">It can escape from the local minimum:</span> the weights tend to be modified in the direction of previous modifications</p>
+</div><div class="column" style="width:25%;">
+<p><br>
+<br>
+<span style="color: Lime;">Sucessive updates in the same direction tend to increase the magnitude, of the modifications, leading to a faster convergence.</span></p>
+</div></div>
 </section></section>
 <section>
 <section id="back-propagation-applications" class="title-slide slide level1 center">
@@ -947,12 +1053,9 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </section>
 <section id="general-applications" class="slide level2">
 <h2>General Applications</h2>
-<p>In general: learning of some function by the way of training examples. The network should be able to generalize.</p>
+<p><strong>In general:</strong> learning of some function by the way of training examples. The network should be able to generalize.</p>
 <p><strong>Example</strong>: Controlling the arm of a Robot</p>
-</section>
-<section id="historical-example" class="slide level2">
-<h2>Historical Example</h2>
-<p><strong>NETTALK (1987)</strong> was a system able to convert written English to intelligible speech.</p>
+<p>Historical Example: <strong>NETTALK (1987)</strong> was a system able to convert written English to intelligible speech.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -966,14 +1069,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </div>
 </div>
 </div>
-</section>
-<section id="other-applications" class="slide level2">
-<h2>Other Applications</h2>
-<ul>
-<li class="fragment">Signals classification (e.g., sonar)</li>
-<li class="fragment">Pattern recognition</li>
-<li class="fragment">Function approximation</li>
-</ul>
+<p><strong>Other Applications:</strong> - Signals classification (e.g., sonar) - Pattern recognition - Function approximation</p>
 </section></section>
 <section>
 <section id="training-neural-networks" class="title-slide slide level1 center">
@@ -982,18 +1078,18 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 </section>
 <section id="the-training-set" class="slide level2">
 <h2>The Training Set</h2>
-<p>Usually, it is not possible to train a neural network with all the examples of the universe of interest because:</p>
+<p>Usually, it is not possible to train a neural network with all the examples of the universe of interest because: It is often too large or infinite (e.g., the inputs/outputs are real numbers) We just have access to a subset of the universe</p>
 <ul>
-<li class="fragment">It is often too large or infinite (e.g., the inputs/outputs are real numbers)</li>
-<li class="fragment">We just have access to a subset of the universe</li>
+<li class="fragment">In order to train the network, a subset of all the universe of possibilities is used. This subset, called the <strong>training set</strong>, is hoped to be representative of the function that the neural network is supposed to learn.</li>
 </ul>
-<p>In order to train the network, a subset of all the universe of possibilities is used. This subset, called the <strong>training set</strong>, is hoped to be representative of the function that the neural network is supposed to learn.</p>
 </section>
-<section id="the-test-set" class="slide level2">
+<section id="the-test-set" class="slide level2 smaller">
 <h2>The Test Set</h2>
-<p>After the training process, the neural network is tested with the so-called <strong>test set</strong> (with no common examples with the training set).</p>
-<p>This is done in order to verify if the network is able to <strong>generalize</strong> beyond the examples used in the training process.</p>
-<p><strong>Process:</strong></p>
+<p>After the training process, the neural network is tested with the so-called <strong>test set</strong> (with no common examples with the training set).<br>
+<br>
+This is done in order to verify if the network is able to <strong>generalize</strong> beyond the examples used in the training process.<br>
+<br>
+<strong>Evaluation:</strong></p>
 <ul>
 <li class="fragment">If the neural network has a good performance with the test set, the training process is finished</li>
 <li class="fragment">If not, the training process must be repeated after something has been changed (the training set, the learning rate, the network architecture, etc.)</li>
@@ -1036,8 +1132,8 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <div class="callout-content">
 <ul>
 <li class="fragment">They are quite <strong>resistant to noise</strong></li>
-<li class="fragment">They work as a <strong>“black box”</strong>: they do not provide any explanation for the output</li>
-<li class="fragment">This turns difficult the usage of knowledge to set up the network as, for example, setting the weights</li>
+<li class="fragment">They work as a <strong>“black box”</strong>: they do not provide any explanation for the output.<br>
+This makes it difficult to use existing knowledge to set up the network, for example, setting the weights with a priori knowledge.</li>
 </ul>
 </div>
 </div>
@@ -1048,7 +1144,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <h1>Further Reading</h1>
 
 </section>
-<section id="topics-to-explore" class="slide level2">
+<section id="topics-to-explore" class="slide level2 smaller">
 <h2>Topics to Explore</h2>
 <ul>
 <li class="fragment"><strong>Cross-validation</strong></li>
@@ -1100,11 +1196,7 @@ Author: Carlos Grilo | Collaboration: Gustavo Reis, Catarina Silva, Pedro Gago, 
 <p><strong>References</strong></p>
 </div>
 <div class="callout-content">
-<ul>
-<li class="fragment">Chapter 19 “Artificial Intelligence: A Modern Approach”</li>
-<li class="fragment">Chapter 5 “Inteligência Artificial: Fundamentos e Aplicações”</li>
-<li class="fragment">“Neural Network Design”, Martin T. Hagan</li>
-</ul>
+<p>Chapter 19 “Artificial Intelligence: A Modern Approach” Chapter 5 “Inteligência Artificial: Fundamentos e Aplicações” “Neural Network Design”, Martin T. Hagan</p>
 </div>
 </div>
 </div>
