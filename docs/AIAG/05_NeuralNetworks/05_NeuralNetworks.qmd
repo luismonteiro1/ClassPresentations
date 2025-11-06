@@ -1056,22 +1056,39 @@ Neural networks are specially suitable for situations where inputs and outputs h
 
 ## Topics to Explore {.smaller}
 
+::::::: columns
+:::: {.column width="50%"}
+::: nonincremental
 -   **Cross-validation**
+\
+\
 -   **Evaluation metrics**:
     -   Confusion matrix
     -   Precision, recall, F-measure
     -   Mean absolute error
     -   Mean absolute percentage error
     -   Root mean squared error
-    -   Relative absolute error
+    -   Relative absolute error 
+:::
+::::
+
+:::: {.column width="50%"}
+::: nonincremental
 -   **Advanced architectures**:
     -   Kohonen networks (self-organized maps)
     -   Deep learning
     -   Convolutional neural networks
+\
+\
 -   **Tools and frameworks**:
     -   Weka
     -   TensorFlow
--   And much more...
+\
+\
+-   **And much more...**
+:::
+::::
+:::::::
 
 ## Additional Resources
 
