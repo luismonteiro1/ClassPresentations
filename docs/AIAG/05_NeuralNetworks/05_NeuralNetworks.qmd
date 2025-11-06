@@ -12,7 +12,7 @@ format:
     incremental: true
     slide-number: c/t
     show-slide-number: all
-    footer: AIAG - Genetic Algorithms - Games and Multimedia
+    footer: AIAG - Neural Networks - Games and Multimedia
     css: custom.css
   html:
     toc: true
