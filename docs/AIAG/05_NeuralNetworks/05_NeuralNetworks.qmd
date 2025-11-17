@@ -217,6 +217,12 @@ Therefore, $\theta$ represents the **minimum value** that the weighted sum must 
 
 $\theta$ can be used with activation functions other than the step function.
 
+::: notes
+- Offset fáz:
+   - com que o output do neuron seja 1, se a soma dos dos inputs for maior que o offset, se não o output é 0
+   - Ou seja o offset representa o valor minimo que a soma tem de ter para o neuron activar
+:::
+
 ## Limitations of a Single Neuron
 
 One neuron divides in two parts the inputs space with the straight line $x_1 w_1 + x_2 w_2 - \theta = 0$
@@ -248,6 +254,13 @@ where $\mathbf{X}$ represents the inputs vector and $\mathbf{W}$ the weights vec
 -   This implies that a **single neuron is only able to represent *linearly separable functions***, which constitutes a serious limitation on the number of functions that can be represented.
 :::
 ::::
+
+::: notes
+em duas dimensões a divisão é feita por uma linha, em tres dimensoes por um plano
+   - Em dimensoes maiores a divisão é feita por um hyperplane
+   - Isto significa que um unico neuronio só consegue representar funções que sejam linearmente separaveis 
+(isto é uma limitação muito grande no numero de funções que podemos representar)
+:::
 
 ## Example: Logic Functions
 
@@ -385,6 +398,8 @@ Where:\
 :::
 ::::
 :::::::
+
+
 
 ## Hebb's Rule Examples
 
