@@ -1,0 +1,29 @@
+---
+title: "Placeholder"
+author: 
+    - "Luís Monteiro"
+subtitle: "Artificial Intelligence Applied to Games"
+format: 
+  revealjs:
+    theme: dark
+    transition: slide
+    background-transition: fade
+    incremental: true
+    slide-number: c/t
+    show-slide-number: all
+    css: AIAG.css
+    footer: AIAG
+---
+
+## Object and Goals
+
+-   **Object**: Intelligent entities
+-   **Goals**:
+    -   Understand how they operate
+    -   To build intelligent entities
+
+## Exercises
+
+
+
+------------------------------------------------------------------------

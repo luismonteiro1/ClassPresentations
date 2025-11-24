@@ -1,0 +1,21 @@
+---
+title: "Topic Placeholder - Book Chapter Placeholder"
+author: 
+    - "Author: Luís Monteiro"
+subtitle: "Cambridge International IGCSE Computer Science"
+format: 
+  revealjs:
+    theme: dark
+    transition: slide
+    background-transition: fade
+    incremental: true
+    slide-number: c/t
+    show-slide-number: all
+    css: ComputerScience.css
+    footer: IGCSE - Computer Science
+---
+
+# Programming Best Practices
+
+## Why Best Practices Matter
+
