@@ -1,0 +1,430 @@
+---
+title: "Version Control Systems"
+subtitle: "What, Why, and How"
+author: "Luís Monteiro, Vitaliy Davydovych"
+format:
+  revealjs:
+    +mermaid-format: png # png also works
+    theme: dark
+    transition: fade
+    slide-number: true
+    show-slide-number: all
+    chalkboard: false
+    css: techart-theme.css
+    footer: "Technical Art — Version Control Systems"
+    highlight-style: github-dark
+    code-block-bg: true
+    mermaid:
+      theme: dark
+---
+
+## What is Version Control? {.center}
+
+> Version control is the practice of **tracking and managing changes** to files over time.
+
+A Version Control System (VCS) is the software tool that does this for your entire project — not just code, but assets, configurations, maps, and more.
+
+---
+
+## The Problem It Solves
+
+You've seen this before:
+
+```
+JohnDoe.fbx
+JohnDoe_2.fbx
+JohnDoe_final.fbx
+JohnDoe_final_2.fbx
+JohnDoe_final_2.1.fbx
+```
+
+This happens because developers want to **keep previous versions** as a safety net.
+
+A VCS eliminates this entirely — every version is stored automatically, with context on what changed and why.
+
+---
+
+## What a VCS Tracks
+
+For every change in the project, a VCS records:
+
+- **What** changed (which files, which lines/bytes)
+- **Who** made the change
+- **When** it happened
+- **Why** — through the commit message written by the developer
+
+This creates a complete, searchable history of your project from day one to ship.
+
+---
+
+## Core Concepts
+
+Before using any VCS, you need to understand these terms.
+
+They apply to Git, Perforce, Diversion, and most others.
+
+---
+
+## Repository {.smaller}
+
+The **repository** (repo) is where your project's entire history is stored.
+
+- **Remote repository** — hosted on a server (cloud or on-premise). The shared source of truth for the team.
+- **Local repository** — a copy of the repository on your machine. Where you do your work.
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+graph TB
+  A[("Remote<br/>Repository<br/>(Server)")] <-->|sync| B[("Local<br/>Repository<br/>Dev A")]
+  A <-->|sync| C[("Local<br/>Repository<br/>Dev B")]
+  A <-->|sync| D[("Local<br/>Repository<br/>Dev C")]
+```
+
+---
+
+## Commit
+
+A **commit** is a snapshot of your project at a specific point in time.
+
+- It captures the state of all tracked files you chose to include
+- It requires a **message** describing what changed and why
+- Once committed, that snapshot is permanently stored in the repository history
+
+::: {.callout-tip}
+Think of commits like save points in a game. 
+The more frequent and descriptive, the safer you are.
+:::
+
+---
+
+## Commit History
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 10
+%%| fig-align: center
+gitGraph
+   commit id: "Initial project setup"
+   commit id: "Created character rig"
+   commit id: "Added walk animation"
+   commit id: "Fixed foot sliding"
+   commit id: "Merged into main"
+```
+
+Each node is a commit. You can inspect, compare, or revert to any of them at any time.
+
+---
+
+## Push, Pull and Fetch {.smaller}
+
+Once you've committed locally, you need to share it with the team.
+
+```{mermaid}
+%%| fig-height: 3
+%%| fig-align: center
+sequenceDiagram
+    participant L as Local Repository
+    participant R as Remote Repository
+
+    L->>R: push — send committed changes to remote
+    R->>L: pull — download remote changes and merge into local
+    R-->>L: fetch — download remote changes without merging
+```
+
+| Command | What it does |
+|---------|-------------|
+| **Push** | Sends your local commits to the remote repository |
+| **Pull** | Fetches changes from remote and merges into your local branch |
+| **Fetch** | Downloads remote changes without merging — lets you inspect first |
+
+---
+
+## Branches {.smaller}
+
+A **branch** is an independent line of development, diverging from a main line.
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+gitGraph
+   commit id: "Stable build"
+   commit id: "v1.0 released"
+   branch feature/new-character
+   checkout feature/new-character
+   commit id: "WIP: character mesh"
+   commit id: "Character textured"
+   checkout main
+   commit id: "Bug fix on main"
+```
+
+Working on a branch means **changes are isolated** — you can't break the main stable build.
+
+---
+
+## Why Branch?
+
+In professional development, you should **almost never commit directly to main**.
+
+Branches allow you to:
+
+- Develop features without affecting stable builds
+- Experiment safely — if it doesn't work, delete the branch
+- Have multiple developers working in parallel without stepping on each other
+- Review and test changes before they reach the main build
+
+---
+
+## Merge {.smaller}
+
+When a branch is ready, you **merge** it back into the target branch.
+
+The VCS combines the changes from both branches into a single unified version.
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+gitGraph
+   commit id: "Stable build"
+   commit id: "v1.0 released"
+   branch feature/new-character
+   checkout feature/new-character
+   commit id: "WIP: character mesh"
+   commit id: "Character textured"
+   checkout main
+   commit id: "Bug fix on main"
+   merge feature/new-character id: "Merge character"
+```
+
+::: {.callout-warning}
+**Merge conflicts** happen when two developers changed the same part of the same file. The VCS can't decide automatically — a developer must resolve it manually.
+:::
+
+---
+
+## Revert {.smaller}
+
+If something breaks, you can **revert** — undoing the changes introduced by a specific commit.
+
+::: {.callout-important}
+A revert does **not** delete history. It creates a **new commit** that undoes the previous changes. Your history always stays intact.
+:::
+
+```{mermaid}
+%%| fig-height: 3
+%%| fig-align: center
+gitGraph
+   commit id: "A: Character rig created"
+   commit id: "B: Walk animation added"
+   commit id: "C: Broken import - mesh lost"
+   commit id: "D: Revert C - mesh restored"
+```
+
+Commit D undoes commit C — without erasing C from the history.
+
+This is exactly why commit messages matter. `"Fixed it"` is useless. `"Fixed foot sliding on A_JohnDoe_Walk at frame 24"` tells you exactly what to look for.
+
+---
+
+## Conflict Resolution
+
+When a conflict occurs:
+
+1. The VCS flags the conflicting file
+2. A developer opens it and sees both versions side by side
+3. They choose which changes to keep (or combine both)
+4. They commit the resolved version
+
+For text files (scripts, configs) most VCS tools can show line-by-line diffs. For binary assets, some tools (including Diversion) show visual diffs for supported formats.
+
+---
+
+## Centralized vs Distributed
+
+There are two fundamental architectures for VCS. Understanding the difference matters because they affect how you work day to day.
+
+---
+
+## Centralized VCS {.smaller}
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+graph TD
+  S[("Central Server<br/>(Single Source of Truth)")] 
+  S <-->|check out / check in| A["Dev A"]
+  S <-->|check out / check in| B["Dev B"]
+  S <-->|check out / check in| C["Dev C"]
+```
+
+- **Single central repository** — all history lives on the server
+- Developers check out files to edit, check in when done
+- Requires **constant network connection** for most operations
+- File **locking** is common — only one person edits a file at a time
+- Examples: **Perforce**, SVN
+
+---
+
+## Distributed VCS {.smaller}
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+graph TD
+  R[("Remote Repository<br/>(Server)")] 
+  R <-->|push / pull| A[("Local Repo A<br/>Dev A<br/>Full History")]
+  R <-->|push / pull| B[("Local Repo B<br/>Dev B<br/>Full History")]
+  R <-->|push / pull| C[("Local Repo C<br/>Dev C<br/>Full History")]
+```
+
+- Every developer has a **complete copy** of the repository including full history
+- Can work **offline** — commit, branch, and review history without a server
+- More flexible branching and merging
+- Examples: **Git**, Mercurial, Diversion
+
+---
+
+## Centralized vs Distributed
+
+| | Centralized | Distributed |
+|--|--|--|
+| Works offline | ✗ | ✓ |
+| Full local history | ✗ | ✓ |
+| File locking | ✓ native | Varies |
+| Binary file handling | ✓ strong | Varies |
+| Disk usage (local) | Low | Higher |
+| Industry standard | AAA studios | Indie / most dev |
+
+---
+
+## VCS in Game Development
+
+Game projects have specific challenges that not all VCS handle equally well:
+
+- **Binary assets** — textures, meshes, audio cannot be merged line by line
+- **Large file sizes** — a single texture atlas can be hundreds of MB
+- **Many simultaneous contributors** — large teams need file locking to prevent conflicts on binary files
+- **Engine-specific files** — Unreal's `.uasset` format requires special handling
+
+---
+
+## Git {.smaller}
+
+The most widely used VCS in the world. Open source, distributed.
+
+| Strengths | Weaknesses |
+|--|--|
+| Excellent branching and merging | Poor native handling of large binary files (requires Git LFS) |
+| Massive ecosystem (GitHub, GitLab, etc.) | No native file locking — binary conflicts are painful |
+| Free and universally understood | Performance degrades with very large repositories |
+
+::: {.callout-note}
+Git is excellent for code and small projects. For large game projects with many binary assets, it requires careful setup.
+:::
+
+---
+
+## Perforce (Helix Core) {.smaller}
+
+The industry standard at AAA studios. Centralized architecture.
+
+| Strengths | Weaknesses |
+|--|--|
+| Designed for large binary files — no size limits in practice | Commercial — expensive licensing |
+| Native file locking — prevents binary conflicts entirely | Requires server infrastructure setup and maintenance |
+| Scales to massive teams and repositories (100GB+ projects) | Steeper learning curve |
+| Deep engine integrations (Unreal, Unity) | Less flexible branching than Git |
+
+::: {.callout-note}
+If you work at a studio using Unreal Engine at scale, you will almost certainly use Perforce.
+:::
+
+---
+
+## Diversion {.smaller}
+
+A newer, cloud-native VCS built specifically for game development. Distributed architecture.
+
+| Strengths | Weaknesses |
+|--|--|
+| Built for game dev from the ground up — Unreal, Unity, Godot support built in | Younger product — less mature than Git or Perforce |
+| Handles binary files well | Smaller community and ecosystem |
+| Real-time change awareness — see teammates' uncommitted changes live | Automatic push/fetch requires constant internet connection |
+| Desktop app accessible for non-technical team members | |
+| Free tier with generous storage | |
+
+::: {.callout-note}
+Diversion is what we'll use in this class. Its workflow is similar to GitHub Desktop — familiar if you've used Git, accessible if you haven't.
+:::
+
+---
+
+## Git vs Perforce vs Diversion {.smaller}
+
+| | Git | Perforce | Diversion |
+|--|--|--|--|
+| Architecture | Distributed | Centralized | Distributed |
+| Binary files | Needs LFS | Excellent | Good |
+| File locking | Via LFS | Native | Planned |
+| Cost | Free | Commercial | Free tier |
+| Game dev focus | General | Yes (AAA) | Yes (all scales) |
+| Unreal integration | Plugin | Native | Plugin |
+| Offline work | ✓ | Limited | ✓ |
+
+---
+
+## Branching Strategy {.smaller}
+
+Choosing how and when to branch is a team decision. There is no single right answer.
+
+Common approaches:
+
+- **Feature branching** — one branch per feature, merged when complete
+- **GitFlow** — main, develop, feature, release, hotfix branches
+- **Trunk-based** — everyone commits to main frequently, short-lived branches
+
+For game development, **feature branching** is the most common at small-to-mid scale.
+
+---
+
+## Defining Your Branching Strategy {.smaller}
+
+Before the project starts, your team should agree on:
+
+- What warrants a new branch? Every feature? Every bug? Only major features?
+- Who is allowed to merge into main?
+- How often should branches be merged back?
+- What is the policy for long-lived branches?
+
+::: {.callout-tip}
+A simple rule for small teams: **branch for every feature or significant change, merge when tested and reviewed.** Keep branches short-lived — the longer a branch lives, the harder the merge.
+:::
+
+---
+
+## The TA's Role in VCS {.smaller}
+
+As a Technical Artist, VCS is not just something you use — it's something you help establish and maintain for the team.
+
+Your responsibilities may include:
+
+- Choosing and setting up the VCS for the project
+- Defining the `.gitignore` / `.dvignore` to exclude generated files
+- Establishing the branching strategy
+- Onboarding artists and non-technical team members
+- Writing tools to validate assets before submission
+- Resolving conflicts that involve binary assets
+
+---
+
+## Summary {.smaller}
+
+| Concept | What it means |
+|---------|--------------|
+| Repository | Where project history is stored |
+| Commit | A saved snapshot with a message |
+| Push / Pull / Fetch | Sync local and remote repos |
+| Branch | Isolated line of development |
+| Merge | Combining branches |
+| Conflict | Two incompatible changes to the same file |
+| Revert | A new commit that undoes a previous one |

@@ -1,0 +1,128 @@
+.reveal strong,
+.reveal b {
+    color: #E87722 !important;
+    font-weight: bold !important;
+}
+
+.reveal .slides section strong,
+.reveal .slides section b {
+    color: #E87722 !important;
+    font-weight: bold !important;
+}
+
+/* --- Headings --- */
+.reveal h1 {
+    color: #E87722 !important;
+}
+
+.reveal h2 {
+    color: #E87722 !important;
+}
+
+.reveal h3 {
+    color: #F0A500 !important;
+}
+
+/* --- Bullet points --- */
+.reveal ul li {
+    list-style: none;
+    position: relative;
+}
+
+.reveal ul li::before {
+    content: "•";
+    color: #E87722 !important;
+    font-weight: bold;
+    position: absolute;
+    left: -1em;
+}
+
+.reveal ol li::marker {
+    color: #E87722 !important;
+}
+
+/* --- Table header rows --- */
+.reveal table thead tr {
+    background-color: #E87722 !important;
+    color: #ffffff !important;
+}
+
+.reveal table thead th {
+    color: #ffffff !important;
+    border-color: #E87722 !important;
+}
+
+/* --- Callout blocks (tip, note, warning, important) --- */
+.reveal .callout-tip {
+    border-left-color: #E87722 !important;
+}
+
+.reveal .callout-tip .callout-title {
+    background-color: rgba(232, 119, 34, 0.15) !important;
+    color: #E87722 !important;
+}
+
+.reveal .callout-note {
+    border-left-color: #F0A500 !important;
+}
+
+.reveal .callout-note .callout-title {
+    background-color: rgba(240, 165, 0, 0.15) !important;
+    color: #F0A500 !important;
+}
+
+.reveal .callout-warning {
+    border-left-color: #FFD700 !important;
+}
+
+.reveal .callout-warning .callout-title {
+    background-color: rgba(255, 215, 0, 0.15) !important;
+    color: #FFD700 !important;
+}
+
+.reveal .callout-important {
+    border-left-color: #FF8C00 !important;
+}
+
+.reveal .callout-important .callout-title {
+    background-color: rgba(255, 140, 0, 0.15) !important;
+    color: #FF8C00 !important;
+}
+
+/* --- Inline code --- */
+.reveal code {
+    color: #F0C040 !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 3px;
+    padding: 0.1em 0.3em;
+}
+
+/* --- Blockquote (used on title slide) --- */
+.reveal blockquote {
+    border-left: 4px solid #E87722 !important;
+    background-color: rgba(232, 119, 34, 0.08) !important;
+    color: #f0f0f0 !important;
+    font-style: italic;
+    padding: 0.5em 1em;
+}
+
+/* --- Footer --- */
+.reveal .footer {
+    color: #E87722 !important;
+    font-size: 0.75em;
+}
+
+/* --- Slide number --- */
+.reveal .slide-number {
+    color: #E87722 !important;
+    background-color: transparent !important;
+}
+
+/* --- Hyperlinks --- */
+.reveal a {
+    color: #E87722 !important;
+}
+
+.reveal a:hover {
+    color: #FFD700 !important;
+}
