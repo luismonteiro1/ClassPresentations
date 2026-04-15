@@ -1,0 +1,58 @@
+---
+title: "Placeholder"
+subtitle: "Placeholder"
+author: "Luís Monteiro, Vitaliy Davydovych"
+format:
+  revealjs:
+    +mermaid-format: png # png also works
+    theme: dark
+    transition: fade
+    slide-number: true
+    show-slide-number: all
+    chalkboard: false
+    css: techart-theme.css
+    footer: "Technical Art - (Insert Title Here)"
+    highlight-style: github-dark
+    code-block-bg: true
+    mermaid:
+      theme: dark
+---
+
+## What is Version Control? {.center}
+
+> Version control is the practice of **tracking and managing changes** to files over time.
+
+A Version Control System (VCS) is the software tool that does this for your entire project — not just code, but assets, configurations, maps, and more.
+
+---
+
+## Repository {.smaller}
+
+The **repository** (repo) is where your project's entire history is stored.
+
+- **Remote repository** — hosted on a server (cloud or on-premise). The shared source of truth for the team.
+- **Local repository** — a copy of the repository on your machine. Where you do your work.
+
+```{mermaid}
+%%| fig-height: 3.5
+%%| fig-align: center
+graph TB
+  A[("Remote<br/>Repository<br/>(Server)")] <-->|sync| B[("Local<br/>Repository<br/>Dev A")]
+  A <-->|sync| C[("Local<br/>Repository<br/>Dev B")]
+  A <-->|sync| D[("Local<br/>Repository<br/>Dev C")]
+```
+
+---
+
+## Centralized vs Distributed
+
+| | Centralized | Distributed |
+|--|--|--|
+| Works offline | ✗ | ✓ |
+| Full local history | ✗ | ✓ |
+| File locking | ✓ native | Varies |
+| Binary file handling | ✓ strong | Varies |
+| Disk usage (local) | Low | Higher |
+| Industry standard | AAA studios | Indie / most dev |
+
+---
